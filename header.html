@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="template.css">
+<div class="header">
+    <div class="container">
+        <header>
+            <h1 class="titullifaqes">L&D Clothing</h1>
+            <ul class="navbar">
+                <a href="">
+                    <li class="abco">About</li>
+                </a>
+                <a href="">
+                    <li class="abco">Contact</li>
+                </a>
+                <a href="">
+                    <li class="signup-btn">Sign Up</li>
+                </a>
+            </ul>
+        </header>
+        <script tpye="text/javascript">
+            window.addEventListener("scroll", function(){
+                var header = document.querySelector("header");
+                header.classList.toggle("sticky", window.scrollY > 0);
+            })
+        </script>
+    </div>
+</div>
