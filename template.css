@@ -1,0 +1,255 @@
+/*CSS I SIDEBARIT*/
+.sidebar {
+    position: fixed; /* Change from 'position: fixed' to 'position: absolute' */
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(40px);
+    border-right: 2px solid rgba(255, 255, 255, .2); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    padding: 6px 14px;
+    transition: .5s;
+    z-index: 999; /* Ensure the sidebar appears above other content */
+}
+
+.sidebar.active{
+    width: 260px;
+}
+
+.sidebar .logo-menu{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+}
+
+.sidebar .logo-menu .logo{
+    font-size: 25px;
+    color: #fff;
+    pointer-events: none;
+    opacity: 0;
+    transition: .3s;
+}
+
+.sidebar.active .logo-menu .logo{
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+
+.sidebar .logo-menu .toggle-btn{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.sidebar.active .logo-menu .toggle-btn{
+    left: 90%;
+}
+
+.sidebar .lista{
+    margin-top: 10px;
+}
+
+.lista .items{
+    list-style: none;
+    width: 100%;
+    height: 50px;
+    margin: 5px 0;
+    line-height: 50px;
+}
+
+.lista .items > a {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: .5s;
+}
+
+.lista .items.active > a,
+.lista .items a:hover{
+    background: rgba(255,255,255, .2);
+}
+
+.lista .items a i{
+    min-width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.sidebar .link-name{
+    opacity: 0;
+    pointer-events: none;
+    transition:opacity .3s; 
+}
+
+.sidebar.active .link-name{
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: calc(.1s * var(--i));
+}
+
+.center-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+
+.right-aligned {
+    right: 170px; /* Adjust the distance from the right side as needed */
+    top: 75%;
+}
+
+.right-aligned h1,
+.right-aligned p,
+.right-aligned .shop-now-button {
+    text-align: center;
+}
+
+.shop-now-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff4500; /* Adjust the color as needed */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.shop-now-button:hover {
+    background-color: #ff6a36; /* Adjust the hover color as needed */
+}
+
+/* CSS I HEADERIT*/
+.header {
+    position: fixed;
+    background: transparent;
+    min-height: 10vh;
+    top: 0;
+    left: 80px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px); /* Adjusted width to accommodate the sidebar */
+    padding: 1rem;
+    z-index: 998; /* Ensure the header appears below the sidebar */
+    border-bottom: 2px solid rgba(255, 255, 255, .2); 
+    backdrop-filter: blur(40px);
+}
+
+.container > header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container ul{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.container ul li{
+    justify-content: space-evenly;
+    margin-right: 40px;
+}
+
+.signup-btn{
+    color: #ff4500;
+}
+
+.navbar > a{
+    font-size: 20px; 
+    text-decoration: none;
+    color: black;
+    list-style-type: none;
+}
+
+.titullifaqes{
+    color: #fff;
+}
+
+.abco{
+    color: #fff;
+}
+
+/*CSS I FOOTERIT*/
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    left: 80px;
+    width: 100%;
+    background: transparent;
+    color: #d9d9d9;
+    z-index: 998;
+    border-bottom: 2px solid rgba(255, 255, 255, .2); 
+    backdrop-filter: blur(40px);
+}
+
+.kryesorja{
+    display: flex;
+}
+
+.kryesorja .box{
+    flex-basis: 50%;
+    padding: 10px 20px;
+}
+
+.box h2{
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.box .permbajtja{
+    margin: 20px 0 0 0;
+}
+
+.majtas .permbajtja .rrjetet-sociale{
+    margin: 20px 0 0 0;
+}
+
+.majtas .permbajtja .rrjetet-sociale a{
+    padding: 0 2px;
+}
+
+.majtas .permbajtja .rrjetet-sociale a > i {
+    height: 40px;
+    width: 40px;
+    background: #1a1a1a;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: .3s;
+}
+
+.majtas .permbajtja .rrjetet-sociale a > i:hover{
+    background-color: #ff4500 ;
+}
+
+.rrjetet-sociale a ,
+.vendi a ,
+.phone a ,
+.email a  {
+    text-decoration: none;
+    color: #d9d9d9;
+}
+
