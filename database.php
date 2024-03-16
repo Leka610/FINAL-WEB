@@ -1,12 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "final_web";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+    session_start();
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    $username = '';
+    $password = '';
+    $errors = array(); 
+
+    //connection to db
+    $db = mysqli_connect('localhost', 'root', '', 'final_web');
 ?>
