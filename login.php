@@ -1,3 +1,32 @@
+<?php
+    include('database.php');
+
+// LOGIN USER
+    if (isset($_POST['loginBtn'])) {
+        $username = mysqli_real_escape_string($db, $_POST['username']);
+        $password = mysqli_real_escape_string($db, $_POST['password']);
+
+        if (empty($username)) {
+            array_push($errors, "Username is required");
+        }
+        if (empty($password)) {
+            array_push($errors, "Password is required");
+        }
+
+        if (count($errors) == 0) {
+            $query = "SELECT * FROM signup WHERE username='$username' AND password='$password'";
+            $results = mysqli_query($db, $query);
+            if (mysqli_num_rows($results) == 1) {
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = "You are now logged in";
+            header('location: index.php');
+            }else {
+                array_push($errors, "Wrong username/password combination");
+            }
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -132,7 +161,8 @@
 <body>
     <div class="center">
         <h1>Login</h1>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form method="post" action="login.php">
+        <?php include('errors.php'); ?>
             <div class="txt_field">
                 <input type="text" name="username" required>
                 <span></span>
@@ -151,15 +181,5 @@
             </div>
         </form>
     </div>
-
-    <?php
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Perform login validation here
-        // For demonstration purposes, just redirect to index.php
-        echo "<script>window.location = 'index.php';</script>";
-        exit; // Make sure to exit after redirecting to prevent further execution
-    }
-    ?>
 </body>
 </html>
